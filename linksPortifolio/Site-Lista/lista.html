@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tarefas</title>
+    <style>
+        body{ /*Estilização do corpo do site*/
+            margin: auto;
+            text-align: center;
+            padding: 10px;
+            background-color: #f9f9f9;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+        }
+
+        #lista{
+            padding: 10px;
+            border: 3px solid rgb(7, 7, 7);
+            max-width: 500px;
+            margin: auto;
+            box-shadow: 0 0 10px;
+        }
+        
+        #lista-tarefas li{ /*Estilizando a lista para deixar ele no centro*/
+            text-align: center;
+            list-style-position: inside;
+            padding:  8px;
+            border-bottom: 1 px solid;
+        }
+
+        #linkVolta{ /*Estilizando o link para voltar para o site principal*/
+            padding: 10px 10px;
+            text-align: left;
+        }
+
+        a{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-decoration: none;
+            border: 2px solid #1d6ab8;
+            color: rgb(0, 0, 0);
+            transition: 0.2s;
+        }
+
+        a:hover{ 
+            border: 2px solid #187cbe;
+            padding: 1px;
+            background-color: #ecf5fc;
+            box-shadow: 2px 2px 3px;
+        }
+    </style>
+</head>
+<body>
+    <!--Link que volta para o site principal-->
+    <div id="linkVolta"><a href="/PortifolioPessoal/CV.html">Voltar Para o Site do Roger</a></div>
+
+
+    <section id="lista"> <!--Região da tabela de Lista de tarefas com o botão que adiciona-->
+        <h1>Lista de tarefas</h1>
+        <form action="">
+            <label for="text">Add Tarefa</label>
+            <input type="text" id="tarefa" name="tarefa">
+            <button type="button" onclick="addTarefa()">Adicionar</button>
+
+            <ul id="lista-tarefas"></ul>
+        </form>
+    </section>
+
+    <script> //Função que adiciona uma tarefa
+        function addTarefa(){
+            let campoTarefa = document.getElementById("tarefa");
+            let listaTarefa = document.getElementById("lista-tarefas")
+
+            let novaTarefa = document.createElement("li")
+            novaTarefa.textContent = campoTarefa.value;
+            listaTarefa.appendChild(novaTarefa)
+
+            campoTarefa.value = "";
+        }
+    </script>
+</body>
+</html>
